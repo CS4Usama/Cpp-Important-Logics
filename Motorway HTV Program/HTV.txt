@@ -1,0 +1,86 @@
+Pakistan Motorway and Highway Authority (MHA) wants to automate the fine calculation for HTV traffic. Due to monsoon rains, motor way is very risky for heavy
+load vehicles and particularly if they are overspending too. MHA only allows 4 wheel, 6 wheel and 8 wheel trucks in HTV category. Main function and class layout
+is given for your ease. Apply try block in the main function wherever required followed by three catches for three different type of exceptions. One exception
+is due to over speeding, second exception is due to overweight and third is for both violations together.  The message of first catch block should be like this
+“Exception Raised due to over speeding and the fine is Rs. 9000” [other catch blocks print their own messages and fine values], where 9000 value is the only fine
+value (enclosed in an object) thrown from the function of the class where exception occurs, after the fine calculation based on the following criteria.
+If speed is more than 110 (kmph) then Rs.3000/- fine is imposed on type of vehicles.
+If summer (between 1st Apr to 30th September) then weight limit is 400Kg per wheel. Otherwise for winter the weight limit is 500Kg per wheel. 
+The fine for over weight is Rs.10 per kg on extra weight only.
+Complete the following program with missing code. Locations for missing code are highlighted with green color dots.
+Marks Distribution: Mentioned below
+
+#include <iostream>
+#include <ctime>	//for getting system time
+using namespace std;
+class Vehicle{	
+	 int type; 	//4 or 6 or 8 wheels
+	 int wt;
+	int speed;
+
+	………..		//Exception class/es should be here				5Points
+
+	void getData()
+	{       
+		cout<<"\nEnter Weight in Kg:";
+		cin>>wt;
+		cout<<"\nEnter Speed:";
+		cin>>speed;
+	}
+	bool check_summer()
+	{
+	………..//will return true if system date is between 1st Apr to 30th September	2Points
+
+	    }
+	    void checkwheel(int x)
+	    {
+	        type=x;
+	        getData();
+	        int perwheel_wt_limit_summer=400; 	//summer between 1st Apr to 30th Sep
+	        int perwheel_wt_limit_winter=500;
+	        int over_weight_fine_perKg=10;  		//On extra weight only
+	        int speed_limit=110;
+	        int speedfine=3000;			//fix fine for all type of vehicles
+	        int fine=0;
+	        int allowed_weight;
+	………..//calculate allowed_weight here					2Points
+
+if(wt<=allowed_weight&&speed<=110)
+	                cout<<"\nPerfect Drivivg, No fine";
+	        else
+	        {
+	//All the three exceptions thrown from here based on if else conditions.
+
+		………..									6Points
+	        }	
+	    }  
+};
+int main()
+{	//Add try and catch blocks somewhere in the main function at suitable place	5Points
+	int option;
+	char optionc;
+	Vehicle v1;
+	do
+	{
+		system("cls");
+		cout << "\n&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&";
+		cout << "\n\tWelcome to HTV Limit Check Program";
+		cout << "\n&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&";
+		cout << "\n\tPress 1 for 4 wheel truck";
+		cout << "\n\tPress 2 for 6 wheel truck";
+		cout << "\n\tPress 3 for 8 wheel truck";
+		cout << "\n\tEnter Option:";
+		cin >> option;
+		switch (option)
+		{
+		        case 1: v1.checkwheel(4);   break;
+		        case 2: v1.checkwheel(6);   break;
+		        case 3: v1.checkwheel(8);   break;
+		        default: cout<<"\nInvalid Option";
+		}
+		cout << "\n\n\tDo you want to continue...y/n:";
+		cin>>optionc;
+	} while (optionc == 'y');
+	cout << "\n\tGoog Bye..!";
+	return 0;
+}
