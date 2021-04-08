@@ -1,5 +1,5 @@
 # C++ Important Logics
-###### C++ Important Logical Programs + Mini Projects
+###### C++ Important Logical Programs + Mini Projects List
 
 1. Enter Three Digit Numbers and it will convert into English Counting
 2. Arithmetic Operational Calculator
